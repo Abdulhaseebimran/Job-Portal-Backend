@@ -17,8 +17,8 @@ const PORT = process.env.PORT || 3000;
 const _dirname = path.resolve();
 
 const corsOptions = {
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
-    credentials: true
+    origin: "https://job-portal-ui-mern.vercel.app",
+    credentials: true 
 }
 
 app.use(express.json());
