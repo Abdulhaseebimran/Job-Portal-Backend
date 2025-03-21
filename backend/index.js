@@ -17,15 +17,17 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const _dirname = path.resolve();
 
-const corsOptions = {
-    origin: "https://job-portal-ui-mern.vercel.app",
-    credentials: true 
-}
-
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+const corsOptions = {
+    origin: [
+        "http://localhost:5173",
+        "https://job-portal-ui-mern.vercel.app"
+    ],
+    credentials: true 
+}
 app.use(cors(corsOptions));
-app.use(cookieParser());
 
 app.use("/user", userRouter);
 app.use("/company", companyRouter);
